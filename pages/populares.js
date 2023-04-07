@@ -1,13 +1,13 @@
 import Layout from "@/components/layout/Layout";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { FirebaseContext } from "@/firebase";
 import styled from "@emotion/styled";
-import { useContext, useEffect, useState } from "react";
 import { DetalleProducto } from "@/components/layout/DetalleProducto";
 import useProductos from "@/hooks/useProductos";
 
-const Home = () => {
-  const { productos } = useProductos("creado");
+const Populares = () => {
+  const { productos } = useProductos("votos");
+
   return (
     <div>
       <Layout>
@@ -25,4 +25,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Populares;
